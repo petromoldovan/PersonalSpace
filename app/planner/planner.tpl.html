@@ -1,0 +1,41 @@
+<article id="plannerView">
+    <div class="fluid-cont">
+        <div class="container">
+
+            <div id="plannerWrapper">
+
+                <div id="todoList">
+
+                        <div id="listTitel">
+                            <h1>
+                                My ToDo List
+                                <span class="pull-right" ng-bind="currentDate"></span>
+                            </h1>
+                        </div>
+
+                        <div id="listContent">
+                            <ul>
+                                <li class="todo-item" ng-repeat="item in listItems track by $index" >
+                                    <span class="iconDone pull-right" ng-click="deleteItem($index)"><i class="glyphicon glyphicon-trash"></i></span>
+                                    <input class="listItems" type="text" ng-value="item.title" ng-blur="updateList()">
+                                </li>
+                            </ul>
+
+                            <form id="inputTasks" ng-submit="addToList()">
+                                <input type="text" name="newTask"  maxlength="45" ng-model="newTask" >
+                            </form>
+                        </div>
+
+                        <div id="listSummary">
+                            <div>
+                                <p>
+                                    You have <span ng-bind="numberOfTasks"></span> <span ng-if="numberOfTasks>1||numberOfTasks==0">tasks</span><span ng-if="numberOfTasks==1">task</span> left.
+                                </p>
+                            </div>
+                        </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</article>
